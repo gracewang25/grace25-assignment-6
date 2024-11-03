@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Regression Analysis Results</h1>
+
+        <div class="plot-section">
+            <h2>Generated Plot</h2>
+            <img src="{{ plot1 }}" alt="Regression Plot" class="plot-image">
+
+            <h2>Histogram of Slopes and Intercepts</h2>
+            <img src="{{ plot2 }}" alt="Histograms" class="plot-image">
+        </div>
+
+        <div class="stats-section">
+            <p>Proportion of slopes more extreme than calculated slope: {{ (slope_extreme * 100) | round(2) }}%</p>
+            <p>Proportion of intercepts more extreme than calculated intercept: {{ (intercept_extreme * 100) | round(2) }}%</p>
+        </div>
+
+        <!-- Return to Form Button -->
+        <form action="{{ url_for('index') }}" method="get">
+            <button type="submit" class="return-button">Return to Form</button>
+        </form>
+    </div>
+</body>
+</html>
